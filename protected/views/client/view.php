@@ -7,4 +7,7 @@
 
     <?php endforeach; ?>
         <input type="submit" value="Save">
+       
+        <a href="<?=$this->createUrl('delete',array('id'=>$id))?>">ลบ</a>
+      
 </form>

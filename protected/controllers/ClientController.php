@@ -62,7 +62,8 @@ class ClientController extends Controller {
         $rawData = json_decode($result, true);
 
         $this->render('view', array(
-            'rawData' => $rawData
+            'rawData' => $rawData,
+            'id'=>$id
         ));
     }
 
@@ -139,7 +140,7 @@ class ClientController extends Controller {
 
 
         if ($response) {
-            //$this->redirect(array('list'));
+            $this->redirect(array('list'));
             //grid view update by ajax
         }
     }
