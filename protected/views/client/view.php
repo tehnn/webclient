@@ -3,11 +3,11 @@
 <form method="POST" action="<?=$this->createUrl('put')?>">
     
     <?php foreach ($rawData as $key => $value): ?>
-        <?= $key ?> : <input type="text" id="<?=$key?>" name="<?= $key ?>" value="<?= $value ?>" > <br>
+        <?= $key ?> : <input type="text" cid="<?=$key?>" name="<?= $key ?>" value="<?= $value ?>" > <br>
 
     <?php endforeach; ?>
         <input type="submit" value="Save">
        
-        <a href="<?=$this->createUrl('delete',array('id'=>$id))?>">ลบ</a>
+        <a href="<?=$this->createUrl('delete',array('cid'=>$cid))?>">ลบ</a>
       
 </form>

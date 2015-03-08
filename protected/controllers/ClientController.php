@@ -3,7 +3,8 @@
 class ClientController extends Controller {
 
     //protected $url = "http://utehn.plkhealth.go.th/demo/webapi/index.php/api2/patients/";
-    protected $url = "http://localhost/webapi/index.php/api2/patients/";
+    //protected $url = "http://localhost/webapi/index.php/api2/patients/";
+    protected  $url = "http://localhost/yii2api/api/web/v1/patients";
     protected $header_auth = array(
         'USERNAME: demo',
         'PASSWORD: demo'
@@ -32,7 +33,7 @@ class ClientController extends Controller {
         //print_r($rawData);
         //return;
         $dataProvider = new CArrayDataProvider($rawData, array(
-            'keyField' => 'id',
+            'keyField' => 'cid',
             'totalItemCount' => count($rawData),
             'sort' => array(
                 'attributes' => count($rawData) > 0 ? array_keys($rawData[0]) : ''
@@ -46,8 +47,8 @@ class ClientController extends Controller {
         ));
     }
 
-    public function actionView($id = "") {
-        $url = $this->url . $id;
+    public function actionView($cid = "") {
+        $url = $this->url ."/". $cid;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
@@ -63,7 +64,7 @@ class ClientController extends Controller {
 
         $this->render('view', array(
             'rawData' => $rawData,
-            'id'=>$id
+            'cid'=>$cid
         ));
     }
 
@@ -100,7 +101,7 @@ class ClientController extends Controller {
     public function actionPut() {
 
         extract($_POST);
-        $url = $this->url . $id;
+        $url = $this->url ."/". $cid;
 
         $put_data = array(
             'name' => $name,
@@ -123,10 +124,10 @@ class ClientController extends Controller {
         }
     }
 
-    public function actionDelete($id = NULL) {
+    public function actionDelete($cid = NULL) {
 
 
-        $url = $this->url . $id;
+        $url = $this->url ."/". $cid;
 
         $ch = curl_init($url);
 

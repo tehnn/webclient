@@ -18,8 +18,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $dataProvider,
     'columns' => array(
         array(
-            'name' => 'id',
-            'value' => 'CHtml::link($data["id"], Yii::app()->createUrl("client/view",array("id"=>$data["id"])))',
+            'name' => 'cid',
+            'value' => 'CHtml::link($data["cid"], Yii::app()->createUrl("client/view",array("cid"=>$data["cid"])))',
             'type' => 'raw'
         ),
         'name',
@@ -31,7 +31,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'buttons' => array(
                 'delete' => array(
                     'label' => '',
-                    'url' => 'Yii::app()->createUrl("client/delete", array("id"=>$data["id"]))',
+                    'url' => 'Yii::app()->createUrl("client/delete", array("cid"=>$data["cid"]))',
                     //'imageUrl' => FALSE,
                     'options' => array('title' => 'ลบ'),
                 ))
