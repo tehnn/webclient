@@ -1,9 +1,10 @@
 
 <form  method="POST" action="<?= $this->createUrl('post') ?>">
-    <input type="hidden" name="id" value="">
+    CID:<input type="text" name="cid">
     name:<input type="text" name="name" id="name">
     lname:<input type="text" name="lname" >
     dx:<input type="text" name="dx">
+    
     <button onclick="this.submit()">ตกลง</button>
 
 
